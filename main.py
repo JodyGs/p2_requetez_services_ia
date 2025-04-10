@@ -1,16 +1,19 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from dotenv import load_dotenv
+import os
+import requests
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+load_dotenv()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+token = os.getenv("HF_API_TOKEN")
+
+headers = {"Authorization": f"Bearer {token}"}
+response = requests.get("https://huggingface.co/api/whoami-v2", headers=headers)
+
+if response.status_code == 200:
+    print("✅ Token valide !")
+    print("Détails :", response.json())
+else:
+    print("❌ Token invalide ou expiré.")
+    print("Code :", response.status_code)
+    print("Message :", response.text)
