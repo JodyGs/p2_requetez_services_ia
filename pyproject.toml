@@ -1,0 +1,20 @@
+[project]
+name = "p2-requetez-des-services-ia"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Jody Gs",email = "jodygonzales.pro@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "matplotlib (>=3.10.1,<4.0.0)",
+    "numpy (>=2.2.4,<3.0.0)",
+    "pillow (>=11.1.0,<12.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
