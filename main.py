@@ -4,6 +4,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -19,6 +20,8 @@ def send_image(image_path):
 
     url = "https://api-inference.huggingface.co/models/mattmdjaga/segformer_b2_clothes"
     response = requests.post(url, headers=headers, data=image_data)
+
+    time.sleep(5)
 
     if response.status_code == 200:
         print(f"[+] Image {image_path} traitée avec succès!")
